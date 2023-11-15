@@ -16,12 +16,14 @@ import {MatChipsModule} from '@angular/material/chips';
 
 import { FormulaireTestComponent } from './formulaire-test/formulaire-test.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { ListeChipsFruitsComponent } from './liste-chips-fruits/liste-chips-fruits.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormulaireTestComponent
+    FormulaireTestComponent,
+    ListeChipsFruitsComponent
   ],
   imports: [
     BrowserModule,

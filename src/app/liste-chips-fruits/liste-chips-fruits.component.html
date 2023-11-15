@@ -1,0 +1,18 @@
+<form>
+    <mat-form-field >
+      <mat-label>Fruits favoris </mat-label>
+      <mat-chip-grid #chipGridFruits>
+          <mat-chip-row *ngFor="let fruit of fruitsChoisis" (removed)="retirer(fruit)">
+            {{fruit}}
+            <button matChipRemove>
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+      </mat-chip-grid>
+      <input placeholder="fruit..." name="input_fruit" [(ngModel)]="input_fruit"
+        [matChipInputFor]="chipGridFruits" [matAutocomplete]="auto" (ngModelChange)="filtrer()" />
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="ajouter($event)">
+        <mat-option *ngFor="let option of listeFruitsFiltres" [value]="option">{{option}}</mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>

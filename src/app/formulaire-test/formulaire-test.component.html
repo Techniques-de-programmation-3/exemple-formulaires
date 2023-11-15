@@ -1,19 +1,13 @@
 <form>
-    <mat-form-field >
-      <mat-label>Fruits favoris</mat-label>
-      <mat-chip-grid #chipGrid >
-          <mat-chip-row (removed)="remove(fruit)" *ngFor="let fruit of fruits">
-            {{fruit}}
-            <button matChipRemove>
-              <mat-icon>cancel</mat-icon>
-            </button>
-          </mat-chip-row>
-      </mat-chip-grid>
-      <input placeholder="catégorie..." #fruitInput 
-        [matChipInputFor]="chipGrid" [matAutocomplete]="auto"
-        (matChipInputTokenEnd)="add($event)"/>
-      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-          <mat-option [value]="fruit" *ngFor="let fruit of filteredFruits | async; track fruit" >{{fruit}}</mat-option>
-      </mat-autocomplete>
+    <mat-form-field>
+        <mat-label>Nom du produit</mat-label>
+        <input matInput type="text" name="nomProduit" [(ngModel)]="unProduitTest.nom" >
     </mat-form-field>
-  </form>
+    <mat-form-field>
+        <mat-label>Description du produit</mat-label>
+        <input matInput type="text" name="descriptionProduit" [(ngModel)]="unProduitTest.description" >
+    </mat-form-field>
+      <button (click)="nomDeMaFonctionClick();" type="button">Un bouton</button>
+</form>
+Contenu de unProduitTest:   {{unProduitTest.nom}},  {{unProduitTest.description}}
+Contenu de unProduitTest en format json:   {{unProduitTest | json}}
